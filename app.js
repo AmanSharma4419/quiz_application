@@ -9,7 +9,7 @@ var mongoose = require("mongoose");
 // All Requires Of The Routing Section
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-
+var adminRouter = require("./routes/admin");
 // Mounting The Express Application
 var app = express();
 
@@ -50,10 +50,12 @@ mongoose.connect(
     err
       ? console.log("Error While Establishing The Connection With Database")
       : console.log("Connected To DB Sucessfully");
+    require("./utils/seed");
   }
 );
 
 // Providing The Api Paths
+app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/user", usersRouter);
 app.use("/", indexRouter);
 
