@@ -13,6 +13,9 @@ var usersRouter = require("./routes/users");
 // Mounting The Express Application
 var app = express();
 
+// Confugiring The Dot Env File
+require("dotenv").config();
+
 // view engine setup + Middlewares
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -51,8 +54,8 @@ mongoose.connect(
 );
 
 // Providing The Api Paths
+app.use("/api/v1/user", usersRouter);
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
