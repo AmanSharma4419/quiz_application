@@ -1,5 +1,11 @@
 import React from "react";
+import AdminLogin from "./components/AdminLogin";
+
 function App() {
-  return <h1>Quiz Application!</h1>;
+  return (
+    <React.Fragment>
+      <AdminLogin />
+    </React.Fragment>
+  );
 }
 export default App;
