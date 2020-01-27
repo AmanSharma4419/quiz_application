@@ -1,11 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
 import { FaUserTie } from "react-icons/fa";
 
-class AdminLogin extends React.Component {
-  constructor(props) {
-    super(props);
+class UserLogin extends React.Component {
+  constructor() {
+    super();
     this.state = {
+      userName: "",
       email: "",
       password: ""
     };
@@ -31,8 +31,10 @@ class AdminLogin extends React.Component {
           }}
         >
           <form onSubmit={this.handleSubmit}>
-            <h1 style={{ marginLeft: "35%" }}>AdminLogin</h1>
-            <FaUserTie size={40} />
+            <h1 style={{ marginLeft: "36%" }}>UserLogin</h1>
+            <center>
+              <FaUserTie size={40} />
+            </center>
             <div className="field">
               <p className="control has-icons-left has-icons-right">
                 <input
@@ -66,9 +68,9 @@ class AdminLogin extends React.Component {
                 <button
                   className="button is-success"
                   type="submit"
-                  style={{ marginLeft: "37%" }}
+                  style={{ marginLeft: "35%" }}
                 >
-                  Login
+                  Register
                 </button>
               </p>
             </div>
@@ -78,8 +80,5 @@ class AdminLogin extends React.Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return state;
-};
 
-export default connect(mapStateToProps)(AdminLogin);
+export default UserLogin;
