@@ -32,6 +32,7 @@ class UserLogin extends React.Component {
         >
           <form onSubmit={this.handleSubmit}>
             <h1 style={{ marginLeft: "36%" }}>UserLogin</h1>
+            <hr />
             <center>
               <FaUserTie size={40} />
             </center>

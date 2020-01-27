@@ -32,7 +32,10 @@ class UserRegister extends React.Component {
         >
           <form onSubmit={this.handleSubmit}>
             <h1 style={{ marginLeft: "35%" }}>UserRegistration</h1>
-            <FaUserTie size={40} />
+            <hr />
+            <center>
+              <FaUserTie size={40} />
+            </center>
             <div className="field">
               <p className="control has-icons-left has-icons-right">
                 <input
@@ -80,7 +83,7 @@ class UserRegister extends React.Component {
                 <button
                   className="button is-success"
                   type="submit"
-                  style={{ marginLeft: "37%" }}
+                  style={{ marginLeft: "36%" }}
                 >
                   Register
                 </button>

@@ -26,13 +26,16 @@ class AdminLogin extends React.Component {
           style={{
             width: "300px",
             display: "flex",
-            marginLeft: "38%",
+            marginLeft: "39%",
             marginTop: "10%"
           }}
         >
           <form onSubmit={this.handleSubmit}>
             <h1 style={{ marginLeft: "35%" }}>AdminLogin</h1>
-            <FaUserTie size={40} />
+            <hr />
+            <center>
+              <FaUserTie size={40} />
+            </center>
             <div className="field">
               <p className="control has-icons-left has-icons-right">
                 <input
