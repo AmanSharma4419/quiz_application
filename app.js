@@ -7,9 +7,11 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // All Requires Of The Routing Section
-var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var adminRouter = require("./routes/admin");
+var questionRouter = require("./routes/questions");
+var indexRouter = require("./routes/index");
+
 // Mounting The Express Application
 var app = express();
 
@@ -55,6 +57,7 @@ mongoose.connect(
 );
 
 // Providing The Api Paths
+app.use("/api/v1/create", questionRouter);
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/user", usersRouter);
 app.use("/", indexRouter);
