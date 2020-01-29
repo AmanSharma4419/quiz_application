@@ -9,7 +9,7 @@ class AdminDashboard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section class="hero is-info is-large">
+        <section class="hero is-info is-medium">
           <div class="hero-body">
             <div class="container">
               <FaUserShield size={100} />

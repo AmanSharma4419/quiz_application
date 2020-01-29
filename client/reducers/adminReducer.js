@@ -9,11 +9,15 @@ function adminReducer(state = adminState, action) {
     switch (action.type) {
       case "ADMIN_LOGIN_START":
         return {
-          ...state,
+          ...adminState,
           isAdminLogginIn: true
         };
       case "ADMIN_LOGIN_COMPLETED": {
-        return { ...state, adminData: action.payload, isAdminLoggedIn: true };
+        return {
+          ...adminState,
+          adminData: action.payload,
+          isAdminLoggedIn: true
+        };
       }
       default: {
         return state;

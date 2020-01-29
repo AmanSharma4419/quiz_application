@@ -1,19 +1,30 @@
 import React from "react";
+import store from "../store/store";
+import { questionAction } from "../actions/questionAction";
+import { connect } from "react-redux";
 
 class CreateQuiz extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       question: "",
-      url: ""
+      url: "",
+      questions: []
     };
   }
 
   handleData = e => {
     e.preventDefault();
-    var questions = [];
-    questions.push(this.state.question);
+    this.state.questions.push(this.state.question);
     this.setState({ question: "" });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    var contentData = {
+      questions: this.state.questions,
+      resource: this.state.url
+    };
+    this.props.questionAction(contentData);
   };
   handleChange = e => {
     const { name, value } = e.target;
@@ -21,7 +32,11 @@ class CreateQuiz extends React.Component {
       [name]: value
     });
   };
+
   render() {
+    store.subscribe(() => {
+      console.log(store.getState());
+    });
     return (
       <React.Fragment>
         <div class="tile is-parent">
@@ -37,6 +52,7 @@ class CreateQuiz extends React.Component {
                     type="text"
                     placeholder="Enter Question"
                     name="question"
+                    value={this.state.question}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -57,7 +73,11 @@ class CreateQuiz extends React.Component {
                   />
                 </div>
                 <br />
-                <button className="button is-link" type="submit">
+                <button
+                  className="button is-link"
+                  type="submit"
+                  onClick={this.handleSubmit}
+                >
                   Create
                 </button>
               </form>
@@ -69,4 +89,7 @@ class CreateQuiz extends React.Component {
     );
   }
 }
-export default CreateQuiz;
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps, { questionAction })(CreateQuiz);
