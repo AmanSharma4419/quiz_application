@@ -3,18 +3,21 @@ const schema = mongoose.Schema;
 
 const profileSchema = new schema(
   {
-    // img: { data: Buffer, contentType: String },
+    avtar: {
+      type: String,
+      default: ""
+    },
     userName: {
-      type: "String",
-      required: "true"
+      type: String
+      // required: "true"
     },
     email: {
-      type: "String",
-      required: "true"
+      type: String
+      // required: "true"
     },
     description: {
-      type: "String",
-      required: true
+      type: String
+      // required: true
     }
   },
   { timestamps: true }

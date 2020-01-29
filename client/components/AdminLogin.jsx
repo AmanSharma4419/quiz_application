@@ -1,4 +1,6 @@
 import React from "react";
+
+import { adminAction } from "../actions/adminAction";
 import { connect } from "react-redux";
 import { FaUserTie } from "react-icons/fa";
 
@@ -18,7 +20,13 @@ class AdminLogin extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    const credentials = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.adminAction(credentials);
   };
+
   render() {
     return (
       <React.Fragment>
@@ -91,4 +99,4 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps)(AdminLogin);
+export default connect(mapStateToProps, { adminAction })(AdminLogin);

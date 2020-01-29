@@ -5,15 +5,22 @@ const adminState = {
 };
 
 function adminReducer(state = adminState, action) {
-  switch (action.type) {
-    case "ADMIN_LOGIN_START":
-      return {
-        ...state,
-        isAdminLogginIn: true
-      };
-    case "ADMIN_LOGIN_COMPLETED": {
-      return { ...state, adminData: "", isAdminLoggedIn: true };
+  try {
+    switch (action.type) {
+      case "ADMIN_LOGIN_START":
+        return {
+          ...state,
+          isAdminLogginIn: true
+        };
+      case "ADMIN_LOGIN_COMPLETED": {
+        return { ...state, adminData: action.payload, isAdminLoggedIn: true };
+      }
+      default: {
+        return state;
+      }
     }
+  } catch (err) {
+    console.log(err.message);
   }
 }
 

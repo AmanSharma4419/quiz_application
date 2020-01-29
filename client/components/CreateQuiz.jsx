@@ -4,18 +4,15 @@ class CreateQuiz extends React.Component {
   constructor() {
     super();
     this.state = {
-      question: [],
+      question: "",
       url: ""
     };
   }
 
   handleData = e => {
     e.preventDefault();
-    if (questions.lenght === 0) {
-      var questions = [];
-    }
-    var x = this.state.question;
-    questions.push(x);
+    var questions = [];
+    questions.push(this.state.question);
     this.setState({ question: "" });
   };
   handleChange = e => {
