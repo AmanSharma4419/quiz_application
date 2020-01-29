@@ -1,7 +1,7 @@
 import React from "react";
-import store from "../store/store";
 import { questionAction } from "../actions/questionAction";
 import { connect } from "react-redux";
+import swal from "sweetalert";
 
 class CreateQuiz extends React.Component {
   constructor(props) {
@@ -24,7 +24,17 @@ class CreateQuiz extends React.Component {
       questions: this.state.questions,
       resource: this.state.url
     };
-    this.props.questionAction(contentData);
+    this.setState({ url: "" });
+    if (!contentData.questions || !contentData.resource) {
+     return  swal({
+        title: "Sorry",
+        text: "Both Questions And Resource Are Mandatory",
+        icon: "error",
+        button: "Go Back"
+      });
+    } else {
+      this.props.questionAction(contentData);
+    }
   };
   handleChange = e => {
     const { name, value } = e.target;
@@ -34,9 +44,6 @@ class CreateQuiz extends React.Component {
   };
 
   render() {
-    store.subscribe(() => {
-      console.log(store.getState());
-    });
     return (
       <React.Fragment>
         <div class="tile is-parent">
@@ -69,6 +76,7 @@ class CreateQuiz extends React.Component {
                     type="url"
                     placeholder="Enter Url"
                     name="url"
+                    value={this.state.url}
                     onChange={this.handleChange}
                   />
                 </div>

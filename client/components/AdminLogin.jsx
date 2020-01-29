@@ -1,9 +1,9 @@
 import React from "react";
-
+import swal from "sweetalert";
 import { adminAction } from "../actions/adminAction";
 import { connect } from "react-redux";
 import { FaUserTie } from "react-icons/fa";
-
+import validator from "validator";
 class AdminLogin extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,24 @@ class AdminLogin extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.adminAction(credentials);
+
+    if (!credentials.email || !credentials.password) {
+      return swal({
+        title: "Sorry",
+        text: "Email And Password Are Must",
+        icon: "error",
+        button: "Go Back"
+      });
+    } else if (!validator.isEmail(credentials.email)) {
+      return swal({
+        title: "Sorry",
+        text: "Please Enter Valid Email",
+        icon: "error",
+        button: "Go Back"
+      });
+    } else {
+      this.props.adminAction(credentials);
+    }
   };
 
   render() {
