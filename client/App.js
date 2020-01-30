@@ -7,6 +7,7 @@ import UserRegister from "./components/UserRegister";
 import UserLogin from "./components/UserLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import CreateQuiz from "./components/CreateQuiz";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/admin-login" component={AdminLogin} />
         <Route path="/user-register" component={UserRegister} />
         <Route path="/user-login" component={UserLogin} />
+        <Route path="/user-profile" component={UserProfile} />
       </Router>
     </React.Fragment>
   );
