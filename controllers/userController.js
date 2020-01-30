@@ -53,21 +53,21 @@ function userLogin(req, res, next) {
 function userProfile(req, res, next) {
   try {
     upload(req, res, err => {
-      if (err) {
-        console.log(err);
-      } else {
-        if (req.file === undefined) {
-          res.json({
-            msg: "Error: No file selected"
-          });
-        } else {
-          console.log("File uploaded");
-          res.json({
-            msg: "File uploaded",
-            file: `uploads/${req.file.filename}`
-          });
-        }
+      if (err) return next(err);
+      if (req.file === undefined) {
+        res.json({
+          msg: "Error: No file selected"
+        });
       }
+      var file = {
+        avtar: req.file.filename
+      };
+      Profile.create(file, (err, fileCreated) => {
+        if (err) return next(err);
+        return res
+          .status(HttpStatus.OK)
+          .json({ _id: fileCreated._id, img: `uploads/${fileCreated.avtar}` });
+      });
     });
   } catch (err) {
     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(err.message);

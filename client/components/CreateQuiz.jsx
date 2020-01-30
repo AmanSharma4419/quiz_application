@@ -1,4 +1,5 @@
 import React from "react";
+
 import { questionAction } from "../actions/questionAction";
 import { connect } from "react-redux";
 import swal from "sweetalert";
@@ -13,11 +14,12 @@ class CreateQuiz extends React.Component {
     };
   }
 
-  handleData = e => {
+  handleInput = e => {
     e.preventDefault();
     this.state.questions.push(this.state.question);
     this.setState({ question: "" });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     var contentData = {
@@ -26,7 +28,7 @@ class CreateQuiz extends React.Component {
     };
     this.setState({ url: "" });
     if (!contentData.questions || !contentData.resource) {
-     return  swal({
+      return swal({
         title: "Sorry",
         text: "Both Questions And Resource Are Mandatory",
         icon: "error",
@@ -36,6 +38,7 @@ class CreateQuiz extends React.Component {
       this.props.questionAction(contentData);
     }
   };
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -64,7 +67,7 @@ class CreateQuiz extends React.Component {
                   />
                 </div>
                 <br />
-                <button className="button is-link" onClick={this.handleData}>
+                <button className="button is-link" onClick={this.handleInput}>
                   Add
                 </button>
                 <hr width="40%" />
@@ -97,7 +100,9 @@ class CreateQuiz extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   return state;
 };
+
 export default connect(mapStateToProps, { questionAction })(CreateQuiz);

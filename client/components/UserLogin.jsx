@@ -1,6 +1,8 @@
 import React from "react";
+
 import { FaUserTie } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 class UserLogin extends React.Component {
   constructor() {
     super();
@@ -10,15 +12,18 @@ class UserLogin extends React.Component {
       password: ""
     };
   }
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
     });
   };
+
   handleSubmit = e => {
     e.preventDefault();
   };
+
   render() {
     return (
       <React.Fragment>

@@ -5,19 +5,7 @@ const profileSchema = new schema(
   {
     avtar: {
       type: String,
-      default: ""
-    },
-    userName: {
-      type: String
-      // required: "true"
-    },
-    email: {
-      type: String
-      // required: "true"
-    },
-    description: {
-      type: String
-      // required: true
+      required: true
     }
   },
   { timestamps: true }

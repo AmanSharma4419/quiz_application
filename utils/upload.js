@@ -35,6 +35,6 @@ const upload = multer({
   fileFilter: (req, file, cb) => {
     checkFileType(file, cb);
   }
-}).single("myImage");
+}).single("avtar");
 
 module.exports = upload;

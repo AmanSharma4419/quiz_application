@@ -1,9 +1,11 @@
 import React from "react";
+
 import swal from "sweetalert";
 import { adminAction } from "../actions/adminAction";
 import { connect } from "react-redux";
 import { FaUserTie } from "react-icons/fa";
 import validator from "validator";
+
 class AdminLogin extends React.Component {
   constructor(props) {
     super(props);
@@ -12,12 +14,14 @@ class AdminLogin extends React.Component {
       password: ""
     };
   }
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
     });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     const credentials = {
@@ -112,6 +116,7 @@ class AdminLogin extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   return state;
 };
