@@ -34,6 +34,16 @@ class CreateQuiz extends React.Component {
         icon: "error",
         button: "Go Back"
       });
+    } else if (
+      contentData.questions.length > 5 ||
+      contentData.questions.length < 5
+    ) {
+      return swal({
+        title: "Sorry",
+        text: "You Can Add Only 5 Questions",
+        icon: "error",
+        button: "Go Back"
+      });
     } else {
       this.props.questionAction(contentData);
     }
@@ -49,10 +59,10 @@ class CreateQuiz extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div class="tile is-parent">
-          <article class="tile is-child notification is-info">
-            <p class="title">Create Quiz Questions</p>
-            <p class="subtitle">Add A Resource Url</p>
+        <div className="tile is-parent">
+          <article className="tile is-child notification is-info">
+            <p className="title">Create Quiz Questions</p>
+            <p className="subtitle">Add A Resource Url</p>
             <center>
               <form type="sub">
                 <div>
@@ -93,7 +103,7 @@ class CreateQuiz extends React.Component {
                 </button>
               </form>
             </center>
-            <figure class="image is-4by2"></figure>
+            <figure className="image is-4by2"></figure>
           </article>
         </div>
       </React.Fragment>
