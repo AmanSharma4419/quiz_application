@@ -10,7 +10,6 @@ export const questionAction = contentData => {
       })
         .then(res => res.json())
         .then(questions => {
-          console.log(questions, "getting the responses");
           dispatch({ type: "QUESTION_LOADED_SUCESSFULLY", payload: questions });
         });
     };

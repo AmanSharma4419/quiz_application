@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   mode: "development",
   devtool: "inline-source-map",
-  entry: ["./client/index.js", "webpack-hot-middleware"],
+  entry: ["./client/index.js"],
   module: {
     rules: [
       {
@@ -51,12 +51,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "bundle.css"
-    }),
-
-    // OccurrenceOrderPlugin is needed for webpack 1.x only
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    // Use NoErrorsPlugin for webpack 1.x
-    new webpack.NoEmitOnErrorsPlugin()
+    })
   ]
 };
