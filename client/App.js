@@ -8,6 +8,7 @@ import UserLogin from "./components/UserLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import CreateQuiz from "./components/CreateQuiz";
 import UserProfile from "./components/UserProfile";
+import AllQuizSets from "./components/AllQuizSets";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/user-register" component={UserRegister} />
         <Route path="/user-login" component={UserLogin} />
         <Route path="/user-profile" component={UserProfile} />
+        <Route path="/all-quizes" component={AllQuizSets} />
       </Router>
     </React.Fragment>
   );

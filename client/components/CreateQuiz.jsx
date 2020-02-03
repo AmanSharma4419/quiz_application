@@ -67,7 +67,7 @@ class CreateQuiz extends React.Component {
               <form type="sub">
                 <div>
                   <input
-                    style={{ width: "40%" }}
+                    style={{ width: "30%" }}
                     className="input"
                     type="text"
                     placeholder="Enter Question"
@@ -80,10 +80,10 @@ class CreateQuiz extends React.Component {
                 <button className="button is-link" onClick={this.handleInput}>
                   Add
                 </button>
-                <hr width="40%" />
+                <hr width="30%" />
                 <div>
                   <input
-                    style={{ width: "40%" }}
+                    style={{ width: "30%" }}
                     className="input"
                     pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)"
                     type="url"

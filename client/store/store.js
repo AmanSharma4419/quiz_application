@@ -6,8 +6,13 @@ import thunk from "redux-thunk";
 // Importing the reducers
 import adminReducer from "../reducers/adminReducer";
 import questionReducer from "../reducers/questionReducer";
+import quizSetReducer from "../reducers/quizSetReducer";
 // Making rootReducer
-const rootReducer = combineReducers({ adminReducer, questionReducer });
+const rootReducer = combineReducers({
+  adminReducer,
+  questionReducer,
+  quizSetReducer
+});
 
 // Making store
 const store = createStore(rootReducer, applyMiddleware(thunk));
