@@ -17,3 +17,5 @@ export const allQuizAction = () => {
     return console.log(err.message);
   }
 };
+
+export default allQuizAction;

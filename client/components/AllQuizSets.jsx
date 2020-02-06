@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AllQuizAction } from "../actions/allQuizAction";
+import { allQuizAction } from "../actions/allQuizAction";
 class AllQuizSets extends React.Component {
   constructor() {
     super();
@@ -25,4 +25,4 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, { AllQuizAction })(AllQuizSets);
+export default connect(mapStateToProps, { allQuizAction })(AllQuizSets);

@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import adminReducer from "../reducers/adminReducer";
 import questionReducer from "../reducers/questionReducer";
 import quizSetReducer from "../reducers/quizSetReducer";
-import userAuthReducer from "../reducers/userReducer";
+import userAuthReducer from "../reducers/userAuthReducer";
 
 // Making rootReducer
 const rootReducer = combineReducers({

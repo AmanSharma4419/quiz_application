@@ -26,3 +26,4 @@ function quizSetReducer(state = quizSetState, action) {
     return console.log(err.message);
   }
 }
+export default quizSetReducer
