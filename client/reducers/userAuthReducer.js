@@ -19,6 +19,7 @@ function userAuthReducer(state = userState, action) {
         };
       }
       default: {
+        
         return state;
       }
     }

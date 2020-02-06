@@ -14,6 +14,7 @@ export const allQuizAction = () => {
         });
     };
   } catch (err) {
+    
     return console.log(err.message);
   }
 };
