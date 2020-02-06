@@ -12,4 +12,15 @@ function createQuestion(req, res, next) {
   }
 }
 
-module.exports = { createQuestion };
+function getQuestion(req, res, next) {
+  try {
+    Question.find({}, (err, questionSet) => {
+      if (err) return next(err);
+      return res.status(httpsStatus.OK).json({ questionset: questionSet });
+    });
+  } catch (err) {
+    return res.status(httpsStatus.INTERNAL_SERVER_ERROR).json(err.message);
+  }
+}
+
+module.exports = { createQuestion, getQuestion };

@@ -1,11 +1,12 @@
 import React from "react";
-
+import { connect } from "react-redux";
+import { userAuthAction } from "../actions/userAuthAction";
 import { FaUserTie } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 class UserLogin extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       userName: "",
       email: "",
@@ -22,6 +23,12 @@ class UserLogin extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const userCredentials = {
+      name: this.state.userName,
+      email: this.state.email,
+      password: this.state.password
+    };
+    console.log(this.props, "in the userLogin component");
   };
 
   render() {
@@ -93,4 +100,8 @@ class UserLogin extends React.Component {
   }
 }
 
-export default UserLogin;
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(mapStateToProps, { userAuthAction })(UserLogin);
