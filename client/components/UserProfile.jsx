@@ -14,6 +14,7 @@ class UserProfile extends React.Component {
     const img = {
       avtar: this.state.img
     };
+    console.log(JSON.stringify(img), this.state.img);
     if (!img) {
       return alert("Please Choose Profile Image");
     } else {
@@ -21,9 +22,10 @@ class UserProfile extends React.Component {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "multipart/form-data"
+          "Content-Type":
+            "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"
         },
-        body: JSON.stringify(img)
+        body: { img: this.state.img }
       });
     }
   };

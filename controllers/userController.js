@@ -54,8 +54,9 @@ function userProfile(req, res, next) {
   try {
     upload(req, res, err => {
       if (err) return next(err);
+      console.log(req.file, "sdas", req.files, req.body);
       if (req.file === undefined) {
-        res.json({
+        return res.json({
           msg: "Error: No file selected"
         });
       }
