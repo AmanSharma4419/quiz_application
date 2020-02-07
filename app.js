@@ -10,6 +10,7 @@ var mongoose = require("mongoose");
 var usersRouter = require("./routes/users");
 var adminRouter = require("./routes/admin");
 var questionRouter = require("./routes/questions");
+var answerRouter = require("./routes/answer");
 var indexRouter = require("./routes/index");
 
 // Mounting The Express Application
@@ -60,6 +61,7 @@ mongoose.connect(
 app.use("/api/v1/create", questionRouter);
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/user", usersRouter);
+app.use("/api/v1/answer", answerRouter);
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler

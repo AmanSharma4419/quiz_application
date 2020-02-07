@@ -8,7 +8,7 @@ const answerSchema = new schema({
     required: true,
     created: Date.now
   },
-  submitter: { type: Schema.Types.ObjectId, ref: "User" }
+  submitter: { type: schema.Types.ObjectId, ref: "User" }
 });
 
 const Answer = mongoose.model("Answer", answerSchema);

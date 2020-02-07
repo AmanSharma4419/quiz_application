@@ -4,6 +4,7 @@ const HttpStatus = require("http-status-codes");
 function submitAnswer(req, res, next) {
   try {
     Answer.create(req.body, (err, answer) => {
+      console.log(answer);
       if (err) return next(err);
       return res.status(HttpStatus.OK).json({ answer: answer });
     });
@@ -11,3 +12,5 @@ function submitAnswer(req, res, next) {
     return console.log(err.message);
   }
 }
+
+module.exports = { submitAnswer };
