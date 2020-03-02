@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { allQuizAction } from "../actions/allQuizAction";
+
 class AllQuizSets extends React.Component {
   constructor() {
     super();
