@@ -22,6 +22,7 @@ function adminLogin(req, res, next) {
           .json("PASSWORD IS NOT CORRECT");
       }
       var token = auth.generateToken(email);
+
       return res.status(HttpStatus.OK).json({ admin: admin, token });
     });
   } catch (err) {

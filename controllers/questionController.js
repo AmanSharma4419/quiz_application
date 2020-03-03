@@ -3,6 +3,7 @@ const httpsStatus = require("http-status-codes");
 
 function createQuestion(req, res, next) {
   try {
+    
     Question.create(req.body, (err, questions) => {
       if (err) return next(err);
       return res.status(httpsStatus.OK).json({ questions: questions });
